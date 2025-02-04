@@ -9,7 +9,7 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
     
-    int N, M;
+    int N,M;
     
     cin >> N >> M;
     
@@ -24,12 +24,13 @@ int main()
         {
             start = A[i];
         }
+        
         end = end + A[i];
     }
     
     while(start <= end)
     {
-        int middle = (start+end)/2;
+        int middle = (start + end)/2;
         int count = 0;
         int sum = 0;
         
@@ -40,7 +41,6 @@ int main()
                 count++;
                 sum = 0;
             }
-            
             sum = sum + A[i];
         }
         
@@ -48,7 +48,6 @@ int main()
         {
             count++;
         }
-        
         if(count > M)
         {
             start = middle + 1;
@@ -59,7 +58,7 @@ int main()
         }
     }
     
-    cout << start << "\n";
+    cout << start;
     
     return 0;
 }
