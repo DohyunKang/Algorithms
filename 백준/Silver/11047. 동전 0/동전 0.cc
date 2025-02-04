@@ -29,10 +29,8 @@ int main()
 	{
 		if (A[i] <= K)
 		{
-			max = A[i];
-			int check = K / A[i];
-			K = K % (check * A[i]);
-			count += check;
+			count += K / A[i];
+			K = K % A[i];
 		}
 	}
 
