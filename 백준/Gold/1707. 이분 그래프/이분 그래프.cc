@@ -16,16 +16,14 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
     
-    int K;
-    int V,E;
+    int K,V,E;
     int s,e;
     
     cin >> K;
     
     for(int i = 0; i < K; i++)
     {
-        cin >> V; 
-        cin >> E;
+        cin >> V >> E;
         
         A.resize(V+1);
         visited.resize(V+1);
@@ -79,7 +77,7 @@ void DFS(int node)
     {
         if(!visited[i])
         {
-            check[i] = (check[node] + 1) % 2;
+            check[i] = (check[node]+1)%2;
             DFS(i);
         }
         else if(check[i] == check[node])
