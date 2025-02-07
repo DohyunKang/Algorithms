@@ -6,11 +6,10 @@
 using namespace std;
 
 typedef pair<int,int> edge;
-
 static vector<vector<edge>> A;
-static vector<int> mdistance;
+static vector<int> md;
 static vector<bool> visited;
-static priority_queue<edge, vector<edge>, greater<edge>> q; 
+static priority_queue<edge, vector<edge>, greater<edge>> q;
 
 int main()
 {
@@ -19,16 +18,17 @@ int main()
     cout.tie(NULL);
     
     int V,E,K;
+    
     cin >> V >> E;
     cin >> K;
     
     A.resize(V+1);
-    mdistance.resize(V+1);
+    md.resize(V+1);
     visited.resize(V+1);
     
     for(int i = 0; i <= V; i++)
     {
-        mdistance[i] = INT_MAX;
+        md[i] = INT_MAX;
         visited[i] = false;
     }
     
@@ -40,14 +40,14 @@ int main()
         A[u].push_back(make_pair(v,w));
     }
     
+    md[K] = 0;
     q.push(make_pair(0,K));
-    mdistance[K] = 0;
     
     while(!q.empty())
     {
         edge now = q.top();
-        q.pop();
         int now_v = now.second;
+        q.pop();
         
         if(visited[now_v])
         {
@@ -62,10 +62,10 @@ int main()
             int next = temp.first;
             int value = temp.second;
             
-            if(mdistance[next] > mdistance[now_v] + value)
+            if(md[next] > md[now_v] + value)
             {
-                mdistance[next] = mdistance[now_v] + value;
-                q.push(make_pair(mdistance[next], next));
+                md[next] = md[now_v] + value;
+                q.push(make_pair(md[next],next));
             }
         }
     }
@@ -74,7 +74,7 @@ int main()
     {
         if(visited[i])
         {
-            cout << mdistance[i] << "\n";
+            cout << md[i] << "\n";
         }
         else
         {
