@@ -35,7 +35,6 @@ int main() {
     while (T--) {
         cin >> M >> N >> K;
 
-        // 벡터 크기 초기화 (기존 데이터 삭제 후 다시 생성)
         field = vector<vector<int>>(M, vector<int>(N, 0));
         visited = vector<vector<bool>>(M, vector<bool>(N, false));
 
