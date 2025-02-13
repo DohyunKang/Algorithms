@@ -25,7 +25,7 @@ int main()
             }
             else
             {
-                md[i][j] = 10000001;
+                md[i][j] = INT_MAX;
             }
         }
     }
@@ -60,7 +60,7 @@ int main()
     {
         for(int j = 1; j <= N; j++)
         {
-            if(md[i][j] == 10000001)
+            if(md[i][j] == INT_MAX)
             {
                 cout << "0 ";
             }
